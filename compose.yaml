@@ -1,0 +1,5 @@
+services:
+  app:
+    build: .
+    container_name: app
+    command: ["python", "prueba.py"]
