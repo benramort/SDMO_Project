@@ -1,0 +1,6 @@
+- Alternative algorithm
+- Separate in 3 files:
+    - Getting the information and storing it in a csv
+    - Processing
+    - Visualization
+- Create a Developer class
