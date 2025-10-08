@@ -12,9 +12,10 @@ import os
 # pairs to csv
 # If you provide a URL, it clones the repo, fetches the commits and then deletes it,
 # so for a big project better clone the repo locally and provide filesystem path
-
+from dev_fetcher import dev_fetcher
 print("Fetching developers from repository 2...")
-
+DEVS = dev_fetcher.fetch_devs()
+'''
 DEVS = set()
 for commit in Repository("https://github.com/benramort/Spootify").traverse_commits():
     DEVS.add((commit.author.name, commit.author.email))
@@ -38,7 +39,7 @@ with open(os.path.join("results", "devs.csv"), 'r', newline='') as csvfile:
         DEVS.append(row)
 # First element is header, skip
 DEVS = DEVS[1:]
-
+'''
 
 # Function for pre-processing each name,email
 def process(dev):
