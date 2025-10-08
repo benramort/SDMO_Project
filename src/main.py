@@ -4,6 +4,7 @@ import unicodedata
 import string
 from itertools import combinations
 from Levenshtein import ratio as sim
+from pydriller import Repository
 import os
 
 # This block of code take the repository, fetches all the commits,
@@ -12,25 +13,26 @@ import os
 # If you provide a URL, it clones the repo, fetches the commits and then deletes it,
 # so for a big project better clone the repo locally and provide filesystem path
 
-# from pydriller import Repository
-# DEVS = set()
-# for commit in Repository("https://github.com/dotnet-architecture/eShopOnContainers").traverse_commits():
-#     DEVS.add((commit.author.name, commit.author.email))
-#     DEVS.add((commit.committer.name, commit.committer.email))
-#
-# DEVS = sorted(DEVS)
-#
-# with open(os.path.join("project1devs", "devs.csv"), 'w', newline='') as csvfile:
-#     writer = csv.writer(csvfile, delimiter=',', quotechar='"')
-#     writer.writerow(["name", "email"])
-#     writer.writerows(DEVS)
-#
+print("Fetching developers from repository 2...")
+
+DEVS = set()
+for commit in Repository("https://github.com/benramort/Spootify").traverse_commits():
+    DEVS.add((commit.author.name, commit.author.email))
+    DEVS.add((commit.committer.name, commit.committer.email))
+
+DEVS = sorted(DEVS)
+
+with open(os.path.join("results", "devs.csv"), 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile, delimiter=',', quotechar='"')
+    writer.writerow(["name", "email"])
+    writer.writerows(DEVS)
+
 
 # This block of code reads an existing csv of developers
 
 DEVS = []
 # Read csv file with name,dev columns
-with open(os.path.join("project1devs", "devs.csv"), 'r', newline='') as csvfile:
+with open(os.path.join("results", "devs.csv"), 'r', newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
         DEVS.append(row)
@@ -109,7 +111,7 @@ for dev_a, dev_b in combinations(DEVS, 2):
 cols = ["name_1", "email_1", "name_2", "email_2", "c1", "c2",
         "c3.1", "c3.2", "c4", "c5", "c6", "c7"]
 df = pd.DataFrame(SIMILARITY, columns=cols)
-df.to_csv(os.path.join("project1devs", "devs_similarity.csv"), index=False, header=True)
+df.to_csv(os.path.join("results", "devs_similarity.csv"), index=False, header=True)
 
 
 # Set similarity threshold, check c1-c3 against the threshold
@@ -124,4 +126,4 @@ df = df[df[["c1_check", "c2_check", "c3_check", "c4", "c5", "c6", "c7"]].any(axi
 # Omit "check" columns, save to csv
 df = df[["name_1", "email_1", "name_2", "email_2", "c1", "c2",
         "c3.1", "c3.2", "c4", "c5", "c6", "c7"]]
-df.to_csv(os.path.join("project1devs", f"devs_similarity_t={t}.csv"), index=False, header=True)
+df.to_csv(os.path.join("results", f"devs_similarity_t={t}.csv"), index=False, header=True)

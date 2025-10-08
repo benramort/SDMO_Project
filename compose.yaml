@@ -2,4 +2,7 @@ services:
   app:
     build: .
     container_name: app
-    command: ["python", "prueba.py"]
+    command: python src/main.py
+    volumes:
+      - ./results:/app/results
+      - ./src:/app/src
