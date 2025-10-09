@@ -1,0 +1,26 @@
+name: Run Tests and Analysis
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up docker
+      uses: docker/setup-buildx-action@v3
+
+    - name: Run test
+      run: docker compose --profile=test up --abort-on-container-exit --exit-code-from test
+    
+
+    
