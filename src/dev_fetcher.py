@@ -11,7 +11,6 @@ class dev_fetcher():
             DEVS.add((commit.committer.name, commit.committer.email))
 
         DEVS = sorted(DEVS)
-
         with open(os.path.join("results", "devs.csv"), 'w', newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=',', quotechar='"')
             writer.writerow(["name", "email"])
