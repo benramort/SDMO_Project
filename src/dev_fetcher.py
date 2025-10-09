@@ -3,9 +3,10 @@ import os
 from pydriller import Repository
 
 class dev_fetcher():
+    
     def fetch_devs():
         DEVS = set()
-        for commit in Repository("https://github.com/dotnet-architecture/eShopOnContainers").traverse_commits():
+        for commit in Repository("https://github.com/benramort/Spootify").traverse_commits():
             DEVS.add((commit.author.name, commit.author.email))
             DEVS.add((commit.committer.name, commit.committer.email))
 
@@ -15,16 +16,15 @@ class dev_fetcher():
             writer = csv.writer(csvfile, delimiter=',', quotechar='"')
             writer.writerow(["name", "email"])
             writer.writerows(DEVS)
-#
-
-# This block of code reads an existing csv of developers
-
+        
+        print(DEVS)
+        return DEVS
+    
+    def load_devs(file : str):
         DEVS = []
-# Read csv file with name,dev columns
-        with open(os.path.join("results", "devs.csv"), 'r', newline='') as csvfile:
+        with open(file, 'r', newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             for row in reader:
                 DEVS.append(row)
-# First element is header, skip
         DEVS = DEVS[1:]
         return DEVS

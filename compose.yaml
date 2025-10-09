@@ -1,8 +1,18 @@
 services:
   app:
+    profiles:
+      - prod
     build: .
     container_name: app
     command: python src/main.py
     volumes:
-      - ./results:/app/results
-      - ./src:/app/src
+      - .:/app
+
+  test:
+    profiles:
+      - test
+    build: .
+    container_name: test
+    command: pytest
+    volumes:
+      - .:/app

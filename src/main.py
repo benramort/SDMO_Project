@@ -13,7 +13,6 @@ import os
 # If you provide a URL, it clones the repo, fetches the commits and then deletes it,
 # so for a big project better clone the repo locally and provide filesystem path
 from dev_fetcher import dev_fetcher
-print("Fetching developers from repository 2...")
 DEVS = dev_fetcher.fetch_devs()
 '''
 DEVS = set()
