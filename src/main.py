@@ -5,6 +5,7 @@ import string
 from itertools import combinations
 from Levenshtein import ratio as sim
 from pydriller import Repository
+from git import Repo
 import os
 
 # This block of code take the repository, fetches all the commits,
@@ -82,29 +83,32 @@ def process(dev):
 
 # Compute similarity between all possible pairs
 SIMILARITY = []
-for dev_a, dev_b in combinations(DEVS, 2):
+def similarity_check(SIMILARITY = []):
+
+    
+    for dev_a, dev_b in combinations(DEVS, 2):
     # Pre-process both developers
-    name_a, first_a, last_a, i_first_a, i_last_a, email_a, prefix_a = process(dev_a)
-    name_b, first_b, last_b, i_first_b, i_last_b, email_b, prefix_b = process(dev_b)
+        name_a, first_a, last_a, i_first_a, i_last_a, email_a, prefix_a = process(dev_a)
+        name_b, first_b, last_b, i_first_b, i_last_b, email_b, prefix_b = process(dev_b)
 
     # Conditions of Bird heuristic
-    c1 = sim(name_a, name_b)
-    c2 = sim(prefix_b, prefix_a)
-    c31 = sim(first_a, first_b)
-    c32 = sim(last_a, last_b)
-    c4 = c5 = c6 = c7 = False
+        c1 = sim(name_a, name_b)
+        c2 = sim(prefix_b, prefix_a)
+        c31 = sim(first_a, first_b)
+        c32 = sim(last_a, last_b)
+        c4 = c5 = c6 = c7 = False
     # Since lastname and initials can be empty, perform appropriate checks
-    if i_first_a != "" and last_a != "":
-        c4 = i_first_a in prefix_b and last_a in prefix_b
-    if i_last_a != "":
-        c5 = i_last_a in prefix_b and first_a in prefix_b
-    if i_first_b != "" and last_b != "":
-        c6 = i_first_b in prefix_a and last_b in prefix_a
-    if i_last_b != "":
-        c7 = i_last_b in prefix_a and first_b in prefix_a
+        if i_first_a != "" and last_a != "":
+            c4 = i_first_a in prefix_b and last_a in prefix_b
+        if i_last_a != "":
+            c5 = i_last_a in prefix_b and first_a in prefix_b
+        if i_first_b != "" and last_b != "":
+            c6 = i_first_b in prefix_a and last_b in prefix_a
+        if i_last_b != "":
+            c7 = i_last_b in prefix_a and first_b in prefix_a
 
     # Save similarity data for each conditions. Original names are saved
-    SIMILARITY.append([dev_a[0], email_a, dev_b[0], email_b, c1, c2, c31, c32, c4, c5, c6, c7])
+        SIMILARITY.append([dev_a[0], email_a, dev_b[0], email_b, c1, c2, c31, c32, c4, c5, c6, c7])
 
 
 
