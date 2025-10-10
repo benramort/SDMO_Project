@@ -13,7 +13,7 @@ services:
       - test
     build: .
     container_name: test
-    command: pytest
+    command: ["sh", "-c", "pytest && coverage run -m pytest && coverage xml"]
     environment:
       - PYTHONPATH=/app/src
     volumes:
