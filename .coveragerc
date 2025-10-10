@@ -1,0 +1,5 @@
+[report]
+omit =
+    tests/*        # ignore test files
+    */tests/*      # (in case tests are nested)
+    */venv/*
