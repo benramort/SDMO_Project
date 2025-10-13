@@ -1,6 +1,6 @@
 import os
 import csv
-from dev_fetcher import *
+import dev_fetcher
 
 def test_load_devs_correct():
     #Setup
