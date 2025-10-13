@@ -1,1 +1,37 @@
 name_1,email_1,name_2,email_2,c1,c2,c3.1,c3.2,c4,c5,c6,c7
+AdeiLB,145749081+AdeiLB@users.noreply.github.com,Beñat Ramirez,benat.ramirez@opendeusto.es,0.21052631578947367,0.13793103448275867,0.18181818181818177,0.0,False,False,False,False
+AdeiLB,145749081+AdeiLB@users.noreply.github.com,Beñat Ramirez Ortiz,125921371+benramort@users.noreply.github.com,0.24,0.34285714285714286,0.18181818181818177,0.0,False,False,False,False
+AdeiLB,145749081+AdeiLB@users.noreply.github.com,GaizkaCarrasco,gaizka.carrasco@opendeusto.es,0.19999999999999996,0.06451612903225812,0.19999999999999996,1.0,False,False,False,False
+AdeiLB,145749081+AdeiLB@users.noreply.github.com,GitHub,noreply@github.com,0.33333333333333337,0.08695652173913049,0.33333333333333337,1.0,False,False,False,False
+AdeiLB,145749081+AdeiLB@users.noreply.github.com,Iker,iker@debian.com,0.19999999999999996,0.09999999999999998,0.19999999999999996,1.0,False,False,False,False
+AdeiLB,145749081+AdeiLB@users.noreply.github.com,Iker Veiga,veiga.iker@opendeusto.es,0.25,0.15384615384615385,0.19999999999999996,0.0,False,False,False,False
+AdeiLB,145749081+AdeiLB@users.noreply.github.com,IkerVeiga,veiga.iker@opendeusto.es,0.2666666666666667,0.15384615384615385,0.2666666666666667,1.0,False,False,False,False
+AdeiLB,145749081+AdeiLB@users.noreply.github.com,github-actions,github-actions@github.com,0.21052631578947367,0.06666666666666665,0.21052631578947367,1.0,False,False,False,False
+Beñat Ramirez,benat.ramirez@opendeusto.es,Beñat Ramirez Ortiz,125921371+benramort@users.noreply.github.com,0.8125,0.4375,1.0,0.7,False,False,False,True
+Beñat Ramirez,benat.ramirez@opendeusto.es,GaizkaCarrasco,gaizka.carrasco@opendeusto.es,0.2222222222222222,0.2857142857142857,0.10526315789473684,0.0,False,False,False,False
+Beñat Ramirez,benat.ramirez@opendeusto.es,GitHub,noreply@github.com,0.10526315789473684,0.30000000000000004,0.18181818181818177,0.0,False,False,False,False
+Beñat Ramirez,benat.ramirez@opendeusto.es,Iker,iker@debian.com,0.23529411764705888,0.23529411764705888,0.2222222222222222,0.0,False,False,False,False
+Beñat Ramirez,benat.ramirez@opendeusto.es,Iker Veiga,veiga.iker@opendeusto.es,0.26086956521739135,0.4347826086956522,0.2222222222222222,0.16666666666666663,False,False,False,False
+Beñat Ramirez,benat.ramirez@opendeusto.es,IkerVeiga,veiga.iker@opendeusto.es,0.2727272727272727,0.4347826086956522,0.2857142857142857,0.0,False,False,False,False
+Beñat Ramirez,benat.ramirez@opendeusto.es,github-actions,github-actions@github.com,0.3076923076923077,0.2962962962962963,0.33333333333333337,0.0,False,False,False,False
+Beñat Ramirez Ortiz,125921371+benramort@users.noreply.github.com,GaizkaCarrasco,gaizka.carrasco@opendeusto.es,0.24242424242424243,0.17647058823529416,0.10526315789473684,0.0,False,False,False,False
+Beñat Ramirez Ortiz,125921371+benramort@users.noreply.github.com,GitHub,noreply@github.com,0.16000000000000003,0.23076923076923073,0.18181818181818177,0.0,False,False,False,False
+Beñat Ramirez Ortiz,125921371+benramort@users.noreply.github.com,Iker,iker@debian.com,0.26086956521739135,0.17391304347826086,0.2222222222222222,0.0,False,False,False,False
+Beñat Ramirez Ortiz,125921371+benramort@users.noreply.github.com,Iker Veiga,veiga.iker@opendeusto.es,0.27586206896551724,0.2068965517241379,0.2222222222222222,0.2222222222222222,False,False,False,False
+Beñat Ramirez Ortiz,125921371+benramort@users.noreply.github.com,IkerVeiga,veiga.iker@opendeusto.es,0.2857142857142857,0.2068965517241379,0.2857142857142857,0.0,False,False,False,False
+Beñat Ramirez Ortiz,125921371+benramort@users.noreply.github.com,github-actions,github-actions@github.com,0.3125,0.18181818181818177,0.33333333333333337,0.0,False,False,False,False
+GaizkaCarrasco,gaizka.carrasco@opendeusto.es,GitHub,noreply@github.com,0.19999999999999996,0.09090909090909094,0.19999999999999996,1.0,False,False,False,False
+GaizkaCarrasco,gaizka.carrasco@opendeusto.es,Iker,iker@debian.com,0.33333333333333337,0.3157894736842105,0.33333333333333337,1.0,False,False,False,False
+GaizkaCarrasco,gaizka.carrasco@opendeusto.es,Iker Veiga,veiga.iker@opendeusto.es,0.33333333333333337,0.4,0.33333333333333337,0.0,False,False,False,False
+GaizkaCarrasco,gaizka.carrasco@opendeusto.es,IkerVeiga,veiga.iker@opendeusto.es,0.34782608695652173,0.4,0.34782608695652173,1.0,False,False,False,False
+GaizkaCarrasco,gaizka.carrasco@opendeusto.es,github-actions,github-actions@github.com,0.37037037037037035,0.3448275862068966,0.37037037037037035,1.0,False,False,False,False
+GitHub,noreply@github.com,Iker,iker@debian.com,0.19999999999999996,0.18181818181818177,0.19999999999999996,1.0,False,False,False,False
+GitHub,noreply@github.com,Iker Veiga,veiga.iker@opendeusto.es,0.125,0.11764705882352944,0.19999999999999996,0.0,False,False,False,False
+GitHub,noreply@github.com,IkerVeiga,veiga.iker@opendeusto.es,0.1333333333333333,0.11764705882352944,0.1333333333333333,1.0,False,False,False,False
+GitHub,noreply@github.com,github-actions,github-actions@github.com,0.631578947368421,0.09523809523809523,0.631578947368421,1.0,False,False,False,False
+Iker,iker@debian.com,Iker Veiga,veiga.iker@opendeusto.es,0.5714285714285714,0.5714285714285714,1.0,0.0,False,False,False,False
+Iker,iker@debian.com,IkerVeiga,veiga.iker@opendeusto.es,0.6153846153846154,0.5714285714285714,0.6153846153846154,1.0,False,False,False,False
+Iker,iker@debian.com,github-actions,github-actions@github.com,0.11764705882352944,0.11111111111111116,0.11764705882352944,1.0,False,False,False,False
+Iker Veiga,veiga.iker@opendeusto.es,IkerVeiga,veiga.iker@opendeusto.es,0.9473684210526316,1.0,0.6153846153846154,0.0,True,True,False,False
+Iker Veiga,veiga.iker@opendeusto.es,github-actions,github-actions@github.com,0.17391304347826086,0.25,0.11764705882352944,0.0,False,False,False,False
+IkerVeiga,veiga.iker@opendeusto.es,github-actions,github-actions@github.com,0.18181818181818177,0.25,0.18181818181818177,1.0,False,False,False,False

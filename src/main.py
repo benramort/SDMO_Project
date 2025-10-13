@@ -2,18 +2,19 @@ import csv
 import pandas as pd
 import unicodedata
 import string
-from itertools import combinations
+
 from Levenshtein import ratio as sim
 from pydriller import Repository
 from git import Repo
 import os
-
+import dev_fetcher
+import bird_heuristic
 # This block of code take the repository, fetches all the commits,
 # retrieves name and email of both the author and commiter and saves the unique
 # pairs to csv
 # If you provide a URL, it clones the repo, fetches the commits and then deletes it,
 # so for a big project better clone the repo locally and provide filesystem path
-import dev_fetcher
+
 print("Fetching developers from repository 2...")
 DEVS = dev_fetcher.fetch_devs("https://github.com/benramort/Spootify")
 # DEVS = dev_fetcher.fetch_devs("/home/benat/Dokumentuak/Oulu/Software Development, Maintenance and Operations/SDMO_Project/.git")
@@ -43,7 +44,7 @@ with open(os.path.join("results", "devs.csv"), 'r', newline='') as csvfile:
 DEVS = DEVS[1:]
 '''
 
-# Function for pre-processing each name,email
+'''# Function for pre-processing each name,email
 def process(dev):
     name: str = dev[0]
 
@@ -79,11 +80,13 @@ def process(dev):
     email: str = dev[1]
     prefix = email.split("@")[0]
 
-    return name, first, last, i_first, i_last, email, prefix
+    return name, first, last, i_first, i_last, email, prefix'''
 
 
 # Compute similarity between all possible pairs
-SIMILARITY = []
+
+SIMILARITY = bird_heuristic.similarity_check(DEVS)
+'''
 def similarity_check(SIMILARITY = []):
 
     
@@ -110,6 +113,8 @@ def similarity_check(SIMILARITY = []):
 
     # Save similarity data for each conditions. Original names are saved
         SIMILARITY.append([dev_a[0], email_a, dev_b[0], email_b, c1, c2, c31, c32, c4, c5, c6, c7])
+
+'''
 
 # Save data on all pairs (might be too big -> comment out to avoid)
 cols = ["name_1", "email_1", "name_2", "email_2", "c1", "c2",
