@@ -7,8 +7,9 @@ class dev_fetcher():
     def fetch_devs():
         DEVS = set()
         for commit in Repository("https://github.com/benramort/Spootify").traverse_commits():
-            DEVS.add((commit.author.name, commit.author.email))
-            DEVS.add((commit.committer.name, commit.committer.email))
+            if not "@users.noreply.github.com" in commit.author.email:
+                DEVS.add((commit.author.name, commit.author.email))
+                DEVS.add((commit.committer.name, commit.committer.email))
 
         DEVS = sorted(DEVS)
         with open(os.path.join("results", "devs.csv"), 'w', newline='') as csvfile:

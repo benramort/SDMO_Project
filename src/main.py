@@ -14,6 +14,7 @@ import os
 # If you provide a URL, it clones the repo, fetches the commits and then deletes it,
 # so for a big project better clone the repo locally and provide filesystem path
 from dev_fetcher import dev_fetcher
+print("Fetching developers from repository 2...")
 DEVS = dev_fetcher.fetch_devs()
 '''
 DEVS = set()
@@ -109,15 +110,20 @@ def similarity_check(SIMILARITY = []):
     # Save similarity data for each conditions. Original names are saved
         SIMILARITY.append([dev_a[0], email_a, dev_b[0], email_b, c1, c2, c31, c32, c4, c5, c6, c7])
 
-
-
 # Save data on all pairs (might be too big -> comment out to avoid)
 cols = ["name_1", "email_1", "name_2", "email_2", "c1", "c2",
         "c3.1", "c3.2", "c4", "c5", "c6", "c7"]
 df = pd.DataFrame(SIMILARITY, columns=cols)
 df.to_csv(os.path.join("results", "devs_similarity.csv"), index=False, header=True)
 
+'''
+Eka set konversio, koska monella devillä voi olla useampi commit
+Sen jälkeen bucketoidaan emailin mukaan eli dict 
+Ku parsitetaan emailin mukaan
+Parsitetaan etunimi, sukunimi mukaan ei välttis sittenkään
+Mieti että developer id
 
+'''
 # Set similarity threshold, check c1-c3 against the threshold
 t=0.7
 print("Threshold:", t)
