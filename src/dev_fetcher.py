@@ -25,7 +25,5 @@ def load_devs(file : str):
         reader = csv.reader(csvfile, delimiter=',')
         next(reader, None)
         for row in reader:
-            if not row:
-                continue
             DEVS.add((row[0], row[1]))
     return DEVS

@@ -25,17 +25,18 @@ def test_fetch_devs_correct(tmp_path):
     repository.index.add([str(file1)])
     repository.index.commit("Commit3", author=git.Actor("name3", "email3"), committer=git.Actor("name3", "email3"))
     #Test
-    devs = dev_fetcher.fetch_devs(str(repo_path), store = False)
+    devs = dev_fetcher.fetch_devs(str(repo_path), store = True)
     assert len(devs) == 3
     assert ("name1", "email1") in devs
     assert ("name2", "email2") in devs
     assert ("name3", "email3") in devs
 
-    # devs = dev_fetcher.load_devs("results/devs.csv") TODO Make something with load devs
-    # assert len(devs) == 3
-    # assert ("name1", "email1") in devs
-    # assert ("name2", "email2") in devs
-    # assert ("name3", "email3") in devs
+    devs = dev_fetcher.load_devs("results/devs.csv")
+    assert len(devs) == 3
+    assert ("name1", "email1") in devs
+    assert ("name2", "email2") in devs
+    assert ("name3", "email3") in devs
+    
     #Cleanup
     repository.close()
 
