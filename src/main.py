@@ -16,7 +16,8 @@ import bird_heuristic
 # so for a big project better clone the repo locally and provide filesystem path
 
 print("Fetching developers from repository 2...")
-DEVS = dev_fetcher.fetch_devs()
+DEVS = dev_fetcher.fetch_devs("https://github.com/benramort/Spootify")
+# DEVS = dev_fetcher.fetch_devs("/home/benat/Dokumentuak/Oulu/Software Development, Maintenance and Operations/SDMO_Project/.git")
 '''
 DEVS = set()
 for commit in Repository("https://github.com/benramort/Spootify").traverse_commits():
