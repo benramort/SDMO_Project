@@ -85,7 +85,7 @@ def process(dev):
 
 # Compute similarity between all possible pairs
 
-SIMILARITY = bird_heuristic.similarity_check(DEVS)
+SIMILARITY = bird_heuristic.similarity_list(DEVS)
 '''
 def similarity_check(SIMILARITY = []):
 
