@@ -31,14 +31,21 @@ def process(dev):
 
     if len(dev) > 2:
         return name, parts, dev[2], initials, email, prefix
-    else
+    else:
         return name, parts, initials, email, prefix
 
 
 def similarity_check(dev_a, dev_b):
     # Pre-process both developers
-    name_a, parts_a, id_a, initials_a, email_a, prefix_a = dev_a
-    name_b, parts_b, id_b, initials_b, email_b, prefix_b = dev_b
+    
+    name_a = parts_a = id_a = initials_a = email_a = prefix_a = 0
+    name_b = parts_b = id_b = initials_b = email_b = prefix_b = 0
+    if len(dev_a) > 5:
+        name_a, parts_a, id_a, initials_a, email_a, prefix_a = dev_a
+        name_b, parts_b, id_b, initials_b, email_b, prefix_b = dev_b
+    else: 
+        name_a, parts_a, initials_a, email_a, prefix_a = dev_a = dev_a
+        name_b, parts_b, initials_b, email_b, prefix_b = dev_b = dev_b
 
     #EMAIL CHECK
     c_email_same = sim(prefix_b, prefix_a) #Check the similarity between the two prefixes.
@@ -104,9 +111,9 @@ def similarity_check(dev_a, dev_b):
     if similarCount > threshold:
         c_partAinB = True                                  
                     
-    if len(dev_a) < 2:
+    if len(dev_a) < 6:
         return dev_a[0], email_a, dev_b[0], email_b, c_email_same, c_inEmailA, c_inEmailB, c_partAinB
-    else
+    else:
         return dev_a[0], dev_a[2], email_a, dev_b[0], dev_b[2], email_b, c_email_same, c_inEmailA, c_inEmailB, c_partAinB
         
 def similarity_list(DEVS):
