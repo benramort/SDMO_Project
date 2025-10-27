@@ -94,7 +94,8 @@ else:
     t=0.7
     print("Threshold:", t)
     
-    df = df[["name_1", "email_1", "name_2", "email_2", "c_email_same", "c_inEmailA", "c_inEmailB", "c_partAinB"]]
+    df["c_email_check"] = df["c_email_same"] >= t
+    df = df[df[["c_inEmailA", "c_inEmailB", "c_partAinB"]].any(axis=1)]
     df.to_csv(os.path.join("results", f"devs_similarity_t={t}.csv"), index=False, header=True)
     
     # Save both to separate CSV files
