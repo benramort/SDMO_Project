@@ -15,8 +15,7 @@ import bird_heuristic
 # If you provide a URL, it clones the repo, fetches the commits and then deletes it,
 # so for a big project better clone the repo locally and provide filesystem path
 
-print("Fetching developers from repository 2...")
-DEVS = dev_fetcher.fetch_devs("https://github.com/benramort/Spootify")
+DEVS = dev_fetcher.fetch_devs(os.environ["REPOSITORY_URL"])
 # DEVS = dev_fetcher.fetch_devs("/home/benat/Dokumentuak/Oulu/Software Development, Maintenance and Operations/SDMO_Project/.git")
 '''
 DEVS = set()
@@ -123,7 +122,7 @@ df = pd.DataFrame(SIMILARITY, columns=cols)
 df.to_csv(os.path.join("results", "devs_similarity.csv"), index=False, header=True)
 
 # Set similarity threshold, check c1-c3 against the threshold
-t=0.7
+t=float(os.environ["THRESHOLD"])
 print("Threshold:", t)
 df["c1_check"] = df["c1"] >= t
 df["c2_check"] = df["c2"] >= t
