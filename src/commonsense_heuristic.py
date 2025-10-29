@@ -3,6 +3,7 @@ import dev_fetcher
 import string
 import unicodedata
 from Levenshtein import ratio as sim
+
 # Function for pre-processing each name,email
 def process(dev):
     name: str = dev[0]
@@ -20,6 +21,8 @@ def process(dev):
 
     #We split the name parts
     parts = name.split(" ")
+    parts = [p for p in parts if p.lower() not in ("via", "github", "bot")]
+    
 
     #Get the initials for all the parts
     initials = [p[0] for p in parts if p]
@@ -29,23 +32,15 @@ def process(dev):
         email = email.replace(" at ", "@")
     prefix = email.split("@")[0]
 
-    if len(dev) > 2:
-        return name, parts, dev[2], initials, email, prefix
-    else:
-        return name, parts, initials, email, prefix
+    return name, parts, initials, email, prefix
 
 
 def similarity_check(dev_a, dev_b):
     # Pre-process both developers
     
-    name_a = parts_a = id_a = initials_a = email_a = prefix_a = 0
-    name_b = parts_b = id_b = initials_b = email_b = prefix_b = 0
-    if len(dev_a) > 5:
-        name_a, parts_a, id_a, initials_a, email_a, prefix_a = dev_a
-        name_b, parts_b, id_b, initials_b, email_b, prefix_b = dev_b
-    else: 
-        name_a, parts_a, initials_a, email_a, prefix_a = dev_a
-        name_b, parts_b, initials_b, email_b, prefix_b = dev_b
+    name_a, parts_a, initials_a, email_a, prefix_a = dev_a
+    name_b, parts_b, initials_b, email_b, prefix_b = dev_b
+
 
     #EMAIL CHECK
     c_email_same = sim(prefix_b, prefix_a) #Check the similarity between the two prefixes.
@@ -84,22 +79,16 @@ def similarity_check(dev_a, dev_b):
                 break
         for partB in combinedAllB: #PART TO COMBINATION
             if sim(partA, partB) >= 0.9:
-                if(dev_a[2] != dev_b[2]):
-                    print(partA + "---" + partB  + "///" + dev_a[0] + " " + dev_b[0])
                 similarCount += 1
                 break
                 
     for partA in combinedAllA:
         for partB in combinedAllB: #PART TO COMBINATION
             if sim(partA, partB) > 0.9:
-                if(dev_a[2] != dev_b[2]):
-                    print(partA + "---" + partB  + "///" + dev_a[0] + " " + dev_b[0])
                 similarCount += 1
                 break
         for partB in parts_b: #PART TO COMBINATION 
             if sim(partA, partB) > 0.9:
-                if(dev_a[2] != dev_b[2]):
-                    print(partA + "---" + partB  + "///" + dev_a[0] + " " + dev_b[0])
                 similarCount += 1
                 break
                
@@ -110,11 +99,9 @@ def similarity_check(dev_a, dev_b):
 
     if similarCount > threshold:
         c_partAinB = True                                  
-                    
-    if len(dev_a) < 6:
-        return dev_a[0], email_a, dev_b[0], email_b, c_email_same, c_inEmailA, c_inEmailB, c_partAinB
-    else:
-        return dev_a[0], dev_a[2], email_a, dev_b[0], dev_b[2], email_b, c_email_same, c_inEmailA, c_inEmailB, c_partAinB
+
+    return dev_a[0], email_a, dev_b[0], email_b, c_email_same, c_inEmailA, c_inEmailB, c_partAinB
+
         
 def similarity_list(DEVS):
     processed_devs = [process(dev) for dev in DEVS]
