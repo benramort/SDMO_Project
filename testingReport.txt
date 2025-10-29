@@ -1,0 +1,13 @@
+Planning: 
+
+Taking into consideration the scope of the software project we are developing, we have decided to use unit tests to check whether the functionality of the product is correct. We aim for a 90% code coverage, and to achieve that we will try to develop unit tests that will execute every branch of the tested functions. 
+
+For each python file we will have a corresponding testing file in the test folder. Each function will have its corresponding tests functions in the file. If a function has several conditional branches, the tests will provide different input data to make sure that every line of code is executed. Each call to the function with different input data will be a separate test function, and will be named in the following way: test_functionName_situationName(). 
+
+For the data processing functions, we will apply the functions over example data and check if the return values are the expected. The data loading and storing functions, however, are a bit more complex. For the repository fetching function, we will create a dummy repository with several different commits made by different committers, and check if the function returns a list with their data. When testing functions that load data from a file, we will create a test file and add data to it in the expected format, and then try to load the developers from that file. We will also test the cases in which the file is empty or non-existent, to ensure that the program acts in the correct in those exceptional cases. After every test function execution, the files and repositories created for testing will be deleted. 
+
+To perform the testing, we will use the following tools: PyTest will execute the testing functions. When executed, PyTest will run every function in the codebase that starts with the word test. PyTest will indicate which tests fail and which pass successfully. We will also use PyTest’s tmp_path folder for the temporal repository and files, because the folder is deleted after each test execution. We will use Coverage to check which lines of code are executed in the testing, and will generate both an XML and an HTLM report that will indicate which lines of the codebase have been executed. 
+
+To ensure the quality of the project, and that the tests are executed regularly, the testing process will be part of our CI/CD pipeline. Whenever someone commits to the main branch of our repository on GitHub, the tests will run automatically, and we will be notified if they fail. The test coverage information will also be transferred to SonarQube, and we will be able to see it in the dashboard. 
+
+Report: 

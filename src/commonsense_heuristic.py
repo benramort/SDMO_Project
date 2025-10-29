@@ -44,8 +44,8 @@ def similarity_check(dev_a, dev_b):
         name_a, parts_a, id_a, initials_a, email_a, prefix_a = dev_a
         name_b, parts_b, id_b, initials_b, email_b, prefix_b = dev_b
     else: 
-        name_a, parts_a, initials_a, email_a, prefix_a = dev_a = dev_a
-        name_b, parts_b, initials_b, email_b, prefix_b = dev_b = dev_b
+        name_a, parts_a, initials_a, email_a, prefix_a = dev_a
+        name_b, parts_b, initials_b, email_b, prefix_b = dev_b
 
     #EMAIL CHECK
     c_email_same = sim(prefix_b, prefix_a) #Check the similarity between the two prefixes.

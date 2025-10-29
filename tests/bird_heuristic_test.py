@@ -1,4 +1,5 @@
 import bird_heuristic
+import os
 
 def test_process_correct():
     dev = ("John Doe", "john.doe@example.com")
@@ -16,7 +17,7 @@ def test_process_multiple_spaces():
     assert bird_heuristic.process(dev) == expected
 
 def test_similarity_check():
-    THRESHOLD = 0.7
+    THRESHOLD = float(os.environ["THRESHOLD"])
     dev_a = ("john doe", "john", "doe", "j", "d", "john.doe@example.com", "john.doe")
     dev_b = ("john doe", "john", "doe", "j", "d", "john.doe@example.com", "john.doe")
     expected = ("john doe", "john.doe@example.com", "john doe", "john.doe@example.com", 1, 1, 1, 1, True, True, True, True)

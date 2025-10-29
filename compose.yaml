@@ -19,5 +19,6 @@ services:
     command: ["sh", "-c", "pytest && coverage run -m pytest && coverage xml && coverage html"]
     environment:
       - PYTHONPATH=/app/src
+      - THRESHOLD=0.7
     volumes:
       - .:/app
